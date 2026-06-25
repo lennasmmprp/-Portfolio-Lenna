@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Lenna Benaloui — Manager Marketing Digital & Communication. En recherche d'alternance à partir de septembre 2026 en Île-de-France.">
+    <meta name="author" content="Lenna Benaloui">
+    <meta property="og:title" content="Lenna Benaloui · Marketing Digital & Communication">
+    <meta property="og:description" content="Je construis des stratégies de contenu qui performent. Étudiante en Master Marketing Digital à Sup de Vente — disponible en alternance dès septembre 2026.">
+    <meta property="og:type" content="website">
+    <title>Lenna Benaloui · Portfolio</title>
+    <link rel="icon" type="image/png" href="LOGO.PNG">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           VARIABLES & RESET
+        ============================================================ */
+        :root {
+            --bg:      #0A0A0A;
+            --bg2:     #141414;
+            --bg3:     #1A1A1A;
+            --text:    #F0F0F0;
+            --yellow:  #F5E642;
+            --border:  #222222;
+            --muted:   #888888;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img    { max-width: 100%; display: block; }
+        a      { color: inherit; text-decoration: none; }
+        button { cursor: pointer; font-family: inherit; border: none; }
+
+        /* ============================================================
+           LAYOUT
+        ============================================================ */
+        .wrap {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section { padding: 120px 0; }
+
+        /* ============================================================
+           ANIMATION — REVEAL
+        ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s cubic-bezier(.25,.46,.45,.94),
+                        transform .7s cubic-bezier(.25,.46,.45,.94);
+        }
+        .reveal.in { opacity: 1; transform: none; }
+
+        .d1 { transition-delay: .10s; }
+        .d2 { transition-delay: .22s; }
+        .d3 { transition-delay: .34s; }
+        .d4 { transition-delay: .46s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* ============================================================
+           BUTTONS
+        ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 1rem 2.2rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all .22s ease;
+            white-space: nowrap;
+        }
+
+        .btn-yellow {
+            background: var(--yellow);
+            color: #0A0A0A;
+            border-color: var(--yellow);
+        }
+        .btn-yellow:hover {
+            background: transparent;
+            color: var(--yellow);
+            transform: translateY(-2px);
+        }
+        .btn-yellow:disabled { opacity: .6; transform: none; cursor: default; }
+
+        .btn-outline-w {
+            background: transparent;
+            color: var(--text);
+            border-color: rgba(240,240,240,.4);
+        }
+        .btn-outline-w:hover {
+            border-color: var(--yellow);
+            color: var(--yellow);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           NAVIGATION
+        ============================================================ */
+        #nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.3rem 0;
+            background: rgba(10,10,10,.93);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            animation: fadeIn .5s ease .05s both;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.45rem;
+            color: var(--yellow);
+            letter-spacing: -.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: .74rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color .2s ease;
+        }
+        .nav-links a:hover { color: var(--yellow); }
+
+        /* Burger */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            padding: 6px;
+        }
+        .burger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            transition: all .3s ease;
+        }
+        .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .burger.open span:nth-child(2) { opacity: 0; }
+        .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile overlay */
+        #mob-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+        #mob-menu.open { display: flex; }
+        #mob-menu a {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            color: var(--text);
+            letter-spacing: -.01em;
+            transition: color .2s ease;
+        }
+        #mob-menu a:hover { color: var(--yellow); }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        #hero {
+            min-height: 100vh;
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle dot-grid texture */
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #1E1E1E 1px, transparent 1px);
+            background-size: 48px 48px;
+            opacity: .6;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 60px 0 80px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 2.5rem;
+            animation: fadeUp .6s ease .1s both;
+        }
+
+        .hero-h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3.5rem, 13vw, 10rem);
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: .88;
+            letter-spacing: -.03em;
+            margin-bottom: 2.5rem;
+            animation: fadeUp .75s ease .2s both;
+            will-change: transform;
+            transition: transform .1s ease-out;
+        }
+
+        .hero-h1 .dot { color: var(--yellow); }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 540px;
+            line-height: 1.85;
+            margin-bottom: 3rem;
+            animation: fadeUp .75s ease .35s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeUp .6s ease .5s both;
+        }
+
+        /* ============================================================
+           SECTION: PROFIL
+        ============================================================ */
+        #profil {
+            background: var(--bg2);
+            border-top: 2px solid var(--yellow);
+        }
+
+        .sec-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 9vw, 7.5rem);
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: .9;
+            letter-spacing: -.025em;
+            margin-bottom: 3.5rem;
+        }
+
+        .profil-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .profil-text {
+            font-size: 1.06rem;
+            color: rgba(240,240,240,.65);
+            line-height: 1.9;
+        }
+        .profil-text p + p { margin-top: 1.4rem; }
+        .profil-text strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .val-list { display: flex; flex-direction: column; }
+
+        .val-item {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+            text-transform: uppercase;
+            color: var(--yellow);
+            letter-spacing: -.01em;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: padding-left .22s ease;
+            cursor: default;
+        }
+        .val-item:first-child { border-top: 1px solid var(--border); }
+        .val-item:hover { padding-left: .7rem; }
+
+        /* ============================================================
+           SECTION: COMPÉTENCES
+        ============================================================ */
+        #competences {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--border);
+        }
+
+        .skill-col {
+            padding: 2.8rem 2.5rem;
+            border-right: 1px solid var(--border);
+        }
+        .skill-col:last-child { border-right: none; }
+
+        .skill-cat-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--yellow);
+            margin-bottom: 1.8rem;
+            padding-bottom: .8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-list { list-style: none; }
+
+        .skill-list li {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .88rem;
+            color: var(--muted);
+            padding: .4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,.04);
+            transition: color .2s ease;
+        }
+        .skill-list li:last-child { border-bottom: none; }
+        .skill-list li:hover { color: var(--text); }
+
+        .skill-list li::before {
+            content: '·';
+            color: var(--yellow);
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* Compétences cliquables */
+        .skill-list li[data-skill] { cursor: pointer; }
+        .skill-list li[data-skill]:hover { color: var(--yellow); }
+        .skill-list li[data-skill]:hover::before { content: '→'; font-size: .78rem; }
+        .skill-list li[data-skill]:focus-visible {
+            outline: 1px solid var(--yellow);
+            outline-offset: 4px;
+        }
+
+        /* ============================================================
+           MODAL
+        ============================================================ */
+        #modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,.9);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+        }
+        #modal-overlay.open { opacity: 1; pointer-events: all; }
+
+        #modal-box {
+            background: var(--bg2);
+            border-top: 2px solid var(--yellow);
+            padding: 2.8rem 3rem;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            transform: translateY(16px);
+            transition: transform .25s cubic-bezier(.25,.46,.45,.94);
+        }
+        #modal-overlay.open #modal-box { transform: translateY(0); }
+
+        #modal-close {
+            position: absolute;
+            top: 1rem; right: 1.2rem;
+            background: none;
+            border: none;
+            color: rgba(240,240,240,.35);
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1;
+            cursor: pointer;
+            padding: .3rem .6rem;
+            transition: color .2s ease;
+        }
+        #modal-close:hover { color: var(--yellow); }
+
+        #modal-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-transform: uppercase;
+            color: var(--yellow);
+            letter-spacing: -.01em;
+            margin-bottom: 1.2rem;
+        }
+
+        #modal-desc {
+            font-size: .95rem;
+            color: rgba(240,240,240,.6);
+            line-height: 1.88;
+        }
+
+        /* ============================================================
+           SECTION: EXPÉRIENCES
+        ============================================================ */
+        #experiences {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .exp-eyebrow {
+            font-size: .82rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: -.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .exp-card {
+            background: var(--bg);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: transform .25s ease;
+            border-top: 2px solid transparent;
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: 0; right: 0;
+            height: 2px;
+            background: var(--yellow);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s cubic-bezier(.25,.46,.45,.94);
+        }
+        .exp-card:hover::before { transform: scaleX(1); }
+        .exp-card:hover { transform: translateY(-5px); }
+
+        .exp-company {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.55rem;
+            text-transform: uppercase;
+            color: var(--text);
+            letter-spacing: -.01em;
+            margin-bottom: .3rem;
+        }
+
+        .exp-role {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 1.4rem;
+        }
+
+        .exp-desc {
+            font-size: .87rem;
+            color: rgba(240,240,240,.5);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-missions {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .exp-missions li {
+            font-size: .87rem;
+            color: rgba(240,240,240,.5);
+            line-height: 1.75;
+            padding: .32rem 0 .32rem 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,.04);
+            position: relative;
+        }
+        .exp-missions li:last-child { border-bottom: none; }
+        .exp-missions li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .exp-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.4rem; }
+
+        .etag {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: .2rem .65rem;
+        }
+
+        /* Exp card — clickable */
+        .exp-card[data-exp] { cursor: pointer; }
+        .exp-card[data-exp]:focus-visible { outline: 1px solid var(--yellow); outline-offset: 4px; }
+
+        .exp-cta {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            display: inline-block;
+            transition: letter-spacing .2s ease;
+        }
+        .exp-card[data-exp]:hover .exp-cta { letter-spacing: .15em; }
+
+        /* Modal subtitle */
+        #modal-sub {
+            display: none;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 1.6rem;
+            opacity: .8;
+        }
+
+        /* Modal missions list (exp) */
+        .modal-missions {
+            list-style: none;
+        }
+        .modal-missions li {
+            font-size: .9rem;
+            color: rgba(240,240,240,.6);
+            line-height: 1.75;
+            padding: .42rem 0 .42rem 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            position: relative;
+        }
+        .modal-missions li:last-child { border-bottom: none; }
+        .modal-missions li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .modal-highlight {
+            margin-top: 1.3rem;
+            background: var(--yellow);
+            color: #0A0A0A;
+            padding: .9rem 1.1rem;
+            font-size: .88rem;
+            font-weight: 500;
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           SECTION: FORMATIONS
+        ============================================================ */
+        #formations {
+            background: var(--bg);
+            border-top: 2px solid var(--yellow);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            max-width: 800px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px; bottom: 4px;
+            width: 2px;
+            background: var(--yellow);
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 3.2rem;
+            padding-bottom: 3.2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .tl-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+
+        .tl-dot {
+            position: absolute;
+            left: -2.67rem;
+            top: 6px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--yellow);
+            box-shadow: 0 0 0 4px rgba(245,230,66,.12);
+        }
+
+        .tl-date {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: .6rem;
+        }
+
+        .tl-degree {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+            text-transform: uppercase;
+            color: var(--text);
+            letter-spacing: -.01em;
+            line-height: 1.15;
+            margin-bottom: .4rem;
+        }
+
+        .tl-school {
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        /* ============================================================
+           SECTION: FREELANCE
+        ============================================================ */
+        #freelance {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        .free-sub {
+            font-size: .9rem;
+            color: var(--muted);
+            margin-top: -.5rem;
+            margin-bottom: 3.5rem;
+            max-width: 520px;
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin-bottom: 2.5rem;
+        }
+
+        .svc-card {
+            background: var(--bg2);
+            padding: 2.8rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: background .22s ease;
+        }
+
+        .svc-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--yellow);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform .3s cubic-bezier(.25,.46,.45,.94);
+        }
+        .svc-card:hover::before { transform: scaleY(1); }
+        .svc-card:hover { background: var(--bg3); }
+
+        .svc-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2.8rem;
+            color: rgba(245,230,66,.1);
+            line-height: 1;
+            letter-spacing: -.03em;
+            margin-bottom: .4rem;
+        }
+
+        .svc-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--text);
+            letter-spacing: -.01em;
+            margin-bottom: .5rem;
+        }
+
+        .svc-desc {
+            font-size: .84rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .free-note {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .8rem;
+            color: rgba(240,240,240,.28);
+            font-style: italic;
+        }
+        .free-note::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--yellow);
+            opacity: .5;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           APPROCHE — L'OFFRE EN 6 TEMPS
+        ============================================================ */
+        .approach-block {
+            margin-top: 3.5rem;
+            border-top: 2px solid var(--yellow);
+            padding-top: 3rem;
+        }
+
+        .approach-eyebrow {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: .5rem;
+        }
+
+        .approach-heading {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            text-transform: uppercase;
+            color: var(--text);
+            letter-spacing: -.02em;
+            margin-bottom: 1rem;
+        }
+
+        .approach-intro {
+            font-size: .88rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .approach-step {
+            background: var(--bg2);
+            padding: 2rem 1.4rem;
+        }
+
+        .step-num {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--yellow);
+            letter-spacing: -.03em;
+            line-height: 1;
+            margin-bottom: .9rem;
+        }
+
+        .step-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            color: var(--text);
+            line-height: 1.35;
+            margin-bottom: .65rem;
+        }
+
+        .step-desc {
+            font-size: .78rem;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        /* ============================================================
+           SECTION: CONTACT
+        ============================================================ */
+        #contact {
+            background: var(--bg);
+            border-top: 2px solid var(--yellow);
+        }
+
+        .contact-big {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.2rem, 8vw, 6.5rem);
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: .88;
+            letter-spacing: -.03em;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-big .q { color: var(--yellow); }
+
+        .contact-sub {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-links { display: flex; flex-direction: column; }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(.9rem, 2vw, 1.4rem);
+            text-transform: uppercase;
+            color: rgba(240,240,240,.45);
+            letter-spacing: -.01em;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color .2s ease;
+        }
+        .contact-link:first-child { border-top: 1px solid var(--border); }
+        .contact-link:hover { color: var(--yellow); }
+
+        .cl-ico {
+            width: 30px; height: 30px;
+            border: 1px solid currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: .6rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            opacity: .5;
+            letter-spacing: 0;
+        }
+
+        /* Form */
+        .c-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .f-label {
+            display: block;
+            font-size: .66rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: .4rem;
+        }
+
+        .f-in, .f-ta {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: .88rem;
+            padding: .85rem 1rem;
+            outline: none;
+            transition: border-color .2s ease;
+        }
+        .f-in::placeholder, .f-ta::placeholder { color: #333; }
+        .f-in:focus, .f-ta:focus { border-color: var(--yellow); }
+        .f-ta { resize: vertical; min-height: 120px; }
+
+        .f-ok {
+            display: none;
+            font-size: .82rem;
+            color: #4ADE80;
+            margin-top: .2rem;
+        }
+
+        /* ============================================================
+           MEDIA MODAL (sous-modale contenus Sezame)
+        ============================================================ */
+        .modal-media-btn {
+            display: inline-block;
+            margin-top: 1.8rem;
+            background: var(--yellow);
+            color: #0A0A0A;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .75rem 1.6rem;
+            border: none;
+            cursor: pointer;
+            transition: opacity .15s ease;
+        }
+        .modal-media-btn:hover { opacity: .82; }
+
+        #media-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,.97);
+            z-index: 300;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+        }
+        #media-modal.open { opacity: 1; pointer-events: all; }
+
+        #media-box {
+            background: #0A0A0A;
+            border-top: 2px solid var(--yellow);
+            padding: 2.8rem 3rem;
+            max-width: 780px;
+            width: 100%;
+            position: relative;
+            margin: auto;
+            transform: translateY(16px);
+            transition: transform .25s cubic-bezier(.25,.46,.45,.94);
+        }
+        #media-modal.open #media-box { transform: translateY(0); }
+
+        #media-close {
+            position: absolute;
+            top: 1rem; right: 1.2rem;
+            background: none;
+            border: none;
+            color: rgba(240,240,240,.35);
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1;
+            cursor: pointer;
+            padding: .3rem .6rem;
+            transition: color .2s ease;
+        }
+        #media-close:hover { color: var(--yellow); }
+
+        .media-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            color: var(--yellow);
+            letter-spacing: -.01em;
+            margin-bottom: 2rem;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .8rem;
+        }
+
+        .media-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #222222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555555;
+            font-family: 'Inter', sans-serif;
+            font-size: .85rem;
+        }
+
+        .media-stats-sep {
+            border: none;
+            border-top: 1px solid #222222;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .media-stats-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--yellow);
+            margin-bottom: 1.2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .8rem;
+        }
+
+        .stat-card {
+            background: #141414;
+            padding: 1.5rem 1.2rem;
+        }
+
+        .stat-value {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--yellow);
+            letter-spacing: -.02em;
+            line-height: 1;
+            margin-bottom: .5rem;
+        }
+
+        .stat-label {
+            font-size: .68rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .media-notes {
+            background: #141414;
+            border-left: 2px solid var(--yellow);
+            padding: 1.4rem 1.6rem;
+            margin-bottom: .4rem;
+        }
+
+        .media-notes p {
+            font-size: .88rem;
+            color: rgba(240,240,240,.55);
+            line-height: 1.75;
+        }
+
+        .media-grid img { cursor: pointer; }
+
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10,10,10,.95);
+            z-index: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease;
+            cursor: pointer;
+        }
+        #lightbox.open { opacity: 1; pointer-events: all; }
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+            cursor: default;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .8rem;
+            margin-top: 1.2rem;
+        }
+
+        .video-slot {
+            background: #1a1a1a;
+            aspect-ratio: 9 / 16;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            color: #555;
+            font-family: 'Inter', sans-serif;
+            font-size: .72rem;
+            letter-spacing: .04em;
+            border: 1px solid #2a2a2a;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 2px 4px rgba(0,0,0,.45),
+                0 8px 18px rgba(0,0,0,.5),
+                0 24px 48px rgba(0,0,0,.35);
+        }
+
+        .video-slot::before { display: none; }
+
+        .video-slot video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .6rem .8rem;
+            background: linear-gradient(transparent, rgba(0,0,0,.75));
+        }
+
+        .v-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,.25);
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: .6rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .3rem .6rem;
+            cursor: pointer;
+            transition: background .15s ease, border-color .15s ease;
+            line-height: 1;
+        }
+
+        .v-btn:hover {
+            background: rgba(245,230,66,.15);
+            border-color: var(--yellow);
+            color: var(--yellow);
+        }
+
+        .media-grid-duo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .8rem;
+            margin-top: 1.2rem;
+        }
+
+        .media-grid-duo .media-placeholder {
+            height: auto;
+            aspect-ratio: 1 / 1;
+        }
+
+        @media (max-width: 768px) {
+            .media-grid     { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid     { grid-template-columns: repeat(2, 1fr); }
+            .video-grid     { grid-template-columns: repeat(2, 1fr); }
+            .media-grid-duo { grid-template-columns: 1fr; }
+            #media-box      { padding: 2rem 1.4rem; }
+        }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 1.8rem 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--yellow);
+        }
+
+        .footer-copy {
+            font-size: .72rem;
+            color: rgba(240,240,240,.22);
+            letter-spacing: .05em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            text-decoration: none;
+            transition: opacity .15s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: .75;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* ============================================================
+           RESPONSIVE — TABLET (≤ 1024px)
+        ============================================================ */
+        @media (max-width: 1024px) {
+            .profil-grid  { grid-template-columns: 1fr; gap: 3rem; }
+            .exp-grid     { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .approach-steps { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ============================================================
+           RESPONSIVE — MOBILE (≤ 768px)
+        ============================================================ */
+        @media (max-width: 768px) {
+            .section   { padding: 80px 0; }
+            .wrap      { padding: 0 1.4rem; }
+
+            .nav-links { display: none; }
+            .burger    { display: flex; }
+
+            .hero-sub br { display: none; }
+
+            .skills-grid  { grid-template-columns: 1fr; border: none; border-top: 1px solid var(--border); }
+            .skill-col    { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 0; }
+            .skill-col:last-child { border-bottom: none; }
+
+            .exp-grid     { grid-template-columns: 1fr; }
+            .svc-grid     { grid-template-columns: 1fr; }
+            .approach-steps { grid-template-columns: 1fr; }
+
+            .sec-title    { margin-bottom: 2.5rem; }
+
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="nav" role="navigation" aria-label="Navigation principale">
+    <div class="wrap">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo"><img src="LOGO.PNG" alt="Lenna Benaloui" style="height:40px;width:auto;object-fit:contain;display:block;"></a>
+
+            <ul class="nav-links">
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#experiences">Expériences</a></li>
+                <li><a href="#formations">Formation</a></li>
+                <li><a href="#freelance">Freelance</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div id="mob-menu" role="dialog" aria-label="Menu mobile">
+    <a href="#profil"       onclick="closeMob()">Profil</a>
+    <a href="#competences"  onclick="closeMob()">Compétences</a>
+    <a href="#experiences"  onclick="closeMob()">Expériences</a>
+    <a href="#formations"   onclick="closeMob()">Formation</a>
+    <a href="#freelance"    onclick="closeMob()">Freelance</a>
+    <a href="#contact"      onclick="closeMob()">Contact</a>
+</div>
+
+<!-- ============================================================
+     1 — HERO
+============================================================ -->
+<section id="hero">
+    <div class="wrap">
+        <div class="hero-content">
+
+            <span class="hero-label">OPEN TO WORK · ALTERNANCE · SEPT. 2026</span>
+
+            <h1 class="hero-h1">
+                MARKETING<span class="dot">.</span><br>
+                DIGITAL<span class="dot">.</span><br>
+                COMMUNICATION<span class="dot">.</span>
+            </h1>
+
+            <p class="hero-sub">
+                Étudiante en Master Marketing Digital à Sup de Vente —<br>
+                je cherche une alternance en Île-de-France à partir de septembre 2026.
+            </p>
+
+            <div class="hero-btns">
+                <a href="#profil"  class="btn btn-yellow">VOIR MON PARCOURS</a>
+                <a href="#contact" class="btn btn-outline-w">ON TRAVAILLE ENSEMBLE ?</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     2 — PROFIL
+============================================================ -->
+<section class="section" id="profil">
+    <div class="wrap">
+
+        <h2 class="sec-title reveal">PROFIL</h2>
+
+        <div class="profil-grid">
+            <div class="profil-text reveal d1">
+                <p>Lenna Benaloui, jeune diplômée d'un Bachelor Responsable de la performance commerciale et du marketing digital, obtenu en juillet 2025, que j'ai réalisé en alternance en tant que Community Manager.</p>
+                <p>Titulaire d'un Bac +2 en intégration web obtenu en 2023, je possède un double profil à la fois technique et marketing.</p>
+                <p>Je suis actuellement à la recherche d'une alternance d'un an dans le domaine du marketing digital, afin de poursuivre un Master en communication, marketing et événementiel.</p>
+            </div>
+
+            <div class="val-list reveal d2">
+                <div class="val-item">#RIGUEUR</div>
+                <div class="val-item">#CRÉATIVITÉ</div>
+                <div class="val-item">#ADAPTABILITÉ</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     3 — COMPÉTENCES
+============================================================ -->
+<section class="section" id="competences">
+    <div class="wrap">
+
+        <h2 class="sec-title reveal">CE QUE JE<br>MAÎTRISE</h2>
+
+        <div class="skills-grid reveal d1">
+
+            <div class="skill-col">
+                <div class="skill-cat-title">Social Media &amp; Contenu</div>
+                <ul class="skill-list">
+                    <li data-skill="instagram"           tabindex="0" role="button" aria-haspopup="dialog">Instagram</li>
+                    <li data-skill="tiktok"              tabindex="0" role="button" aria-haspopup="dialog">TikTok</li>
+                    <li data-skill="canva"               tabindex="0" role="button" aria-haspopup="dialog">Canva</li>
+                    <li data-skill="capcut"              tabindex="0" role="button" aria-haspopup="dialog">CapCut</li>
+                    <li data-skill="metricool"           tabindex="0" role="button" aria-haspopup="dialog">Metricool</li>
+                    <li data-skill="strategie-editoriale" tabindex="0" role="button" aria-haspopup="dialog">Stratégie éditoriale</li>
+                    <li data-skill="creation-de-contenu" tabindex="0" role="button" aria-haspopup="dialog">Création de contenu</li>
+                </ul>
+            </div>
+
+            <div class="skill-col">
+                <div class="skill-cat-title">Marketing Digital</div>
+                <ul class="skill-list">
+                    <li data-skill="seo"                 tabindex="0" role="button" aria-haspopup="dialog">SEO</li>
+                    <li data-skill="analyse-de-donnees"  tabindex="0" role="button" aria-haspopup="dialog">Analyse de données</li>
+                    <li data-skill="reporting"           tabindex="0" role="button" aria-haspopup="dialog">Reporting</li>
+                    <li data-skill="campagnes-paid"      tabindex="0" role="button" aria-haspopup="dialog">Campagnes paid (notions)</li>
+                    <li data-skill="google-analytics"    tabindex="0" role="button" aria-haspopup="dialog">Google Analytics</li>
+                </ul>
+            </div>
+
+            <div class="skill-col">
+                <div class="skill-cat-title">Outils &amp; Tech</div>
+                <ul class="skill-list">
+                    <li data-skill="notion"              tabindex="0" role="button" aria-haspopup="dialog">Notion</li>
+                    <li data-skill="trello"              tabindex="0" role="button" aria-haspopup="dialog">Trello</li>
+                    <li data-skill="claude-code"         tabindex="0" role="button" aria-haspopup="dialog">Claude Code</li>
+                    <li data-skill="lighthouse"          tabindex="0" role="button" aria-haspopup="dialog">Lighthouse</li>
+                    <li data-skill="ia-generative"       tabindex="0" role="button" aria-haspopup="dialog">IA générative (ChatGPT, Claude)</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     4 — EXPÉRIENCES
+============================================================ -->
+<section class="section" id="experiences">
+    <div class="wrap">
+
+        <h2 class="sec-title reveal">MES<br>EXPÉRIENCES</h2>
+        <p class="exp-eyebrow reveal">3 structures. 3 univers. 1 fil rouge&nbsp;: le contenu.</p>
+
+        <div class="exp-grid">
+
+            <div class="exp-card reveal" data-exp="sezame" tabindex="0" role="button" aria-haspopup="dialog">
+                <div class="exp-company">Sezame</div>
+                <div class="exp-role">Social Media &amp; Web Content · Alternance</div>
+                <div class="exp-tags">
+                    <span class="etag">Sept 2025 – Juin 2026</span>
+                    <span class="etag">Paris 75013</span>
+                </div>
+                <span class="exp-cta">Voir le détail →</span>
+            </div>
+
+            <div class="exp-card reveal d1" data-exp="mawu" tabindex="0" role="button" aria-haspopup="dialog">
+                <div class="exp-company">Mawu Paris</div>
+                <div class="exp-role">Communication Digitale &amp; Relations Presse · Stage</div>
+                <div class="exp-tags">
+                    <span class="etag">Juil 2025 – Août 2025</span>
+                    <span class="etag">Communication Digitale &amp; Relations Presse</span>
+                    <span class="etag">Courbevoie 92</span>
+                    <span class="etag">Stage</span>
+                </div>
+                <span class="exp-cta">Voir le détail →</span>
+            </div>
+
+            <div class="exp-card reveal d2" data-exp="ecorce" tabindex="0" role="button" aria-haspopup="dialog">
+                <div class="exp-company">Écorce &amp; Wood</div>
+                <div class="exp-role">Community Manager · Alternance</div>
+                <div class="exp-tags">
+                    <span class="etag">Nov 2024 – Juil 2025</span>
+                    <span class="etag">Community Manager</span>
+                    <span class="etag">Le Plessis-Bouchard 95</span>
+                    <span class="etag">Alternance</span>
+                </div>
+                <span class="exp-cta">Voir le détail →</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     5 — FORMATIONS
+============================================================ -->
+<section class="section" id="formations">
+    <div class="wrap">
+
+        <h2 class="sec-title reveal">FORMATIONS</h2>
+
+        <div class="timeline">
+
+            <div class="tl-item reveal d1">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2025 – 2027</div>
+                <div class="tl-degree">Manager Marketing Digital,<br>Communication et Événementiel</div>
+                <div class="tl-school">Sup de Vente — Paris 15</div>
+            </div>
+
+            <div class="tl-item reveal d2">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2024 – 2025</div>
+                <div class="tl-degree">Bachelor Responsable de la Performance<br>Commerciale et du Marketing Digital (Alternance)</div>
+                <div class="tl-school">Groupe Stephenson Formation — Paris 18</div>
+            </div>
+
+            <div class="tl-item reveal d3">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2022 – 2023</div>
+                <div class="tl-degree">Bac+2 Développeuse Intégratrice Web</div>
+                <div class="tl-school">OpenClassrooms</div>
+            </div>
+
+            <div class="tl-item reveal d4">
+                <div class="tl-dot"></div>
+                <div class="tl-date">2019 – 2022</div>
+                <div class="tl-degree">Baccalauréat STMG<br>Spécialité Marketing</div>
+                <div class="tl-school">Lycée Jacques Feyder — Épinay-sur-Seine 93</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     6 — FREELANCE
+============================================================ -->
+<section class="section" id="freelance">
+    <div class="wrap">
+
+        <h2 class="sec-title reveal">FREELANCE</h2>
+        <p class="free-sub reveal">
+            En parallèle de ma formation, je lance mon activité freelance pour accompagner des entrepreneurs en Île-de-France.
+        </p>
+
+        <div class="approach-block reveal">
+            <p class="approach-eyebrow">Mon activité freelance</p>
+            <h3 class="approach-heading">LA MÉTHODE</h3>
+            <p class="approach-intro">Un accompagnement structuré en 6 étapes, du diagnostic à la publication.</p>
+            <div class="approach-steps">
+
+                <div class="approach-step">
+                    <div class="step-num">01</div>
+                    <div class="step-name">AUDIT</div>
+                    <div class="step-desc">Analyse de votre présence actuelle et de vos concurrents.</div>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-num">02</div>
+                    <div class="step-name">STRATÉGIE</div>
+                    <div class="step-desc">Ligne éditoriale, piliers de contenu et calendrier sur-mesure.</div>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-num">03</div>
+                    <div class="step-name">SHOOTING</div>
+                    <div class="step-desc">Production photo et vidéo mensuelle pour alimenter vos contenus.</div>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-num">04</div>
+                    <div class="step-name">CRÉATION</div>
+                    <div class="step-desc">Visuels, Reels et captions produits et soumis à votre validation.</div>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-num">05</div>
+                    <div class="step-name">PUBLICATION</div>
+                    <div class="step-desc">Je publie, je gère l'engagement et j'anime votre communauté.</div>
+                </div>
+
+                <div class="approach-step">
+                    <div class="step-num">06</div>
+                    <div class="step-name">REPORTING</div>
+                    <div class="step-desc">Bilan mensuel chiffré et recommandations pour le mois suivant.</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     7 — CONTACT
+============================================================ -->
+<section class="section" id="contact">
+    <div class="wrap">
+
+        <div class="reveal">
+            <h2 class="contact-big">
+                ON TRAVAILLE<br>ENSEMBLE<span class="q"> ?</span>
+            </h2>
+            <p class="contact-sub">Tu recrutes pour une alternance à partir de septembre 2026 ?</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+    <div class="wrap">
+        <div class="footer-inner">
+            <span class="footer-logo">LB.</span>
+            <nav class="footer-links">
+                <a href="https://www.instagram.com/smm.lenna/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </nav>
+            <span class="footer-copy">© 2026 Lenna Benaloui · All rights reserved</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     MODAL
+============================================================ -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-box">
+        <button id="modal-close" aria-label="Fermer">×</button>
+        <h3 id="modal-title"></h3>
+        <p id="modal-sub"></p>
+        <div id="modal-desc"></div>
+    </div>
+</div>
+
+<!-- ============================================================
+     MEDIA MODAL
+============================================================ -->
+<div id="media-modal" role="dialog" aria-modal="true" aria-label="Contenus Sezame">
+    <div id="media-box">
+        <button id="media-close" aria-label="Fermer">×</button>
+        <h3 class="media-title">CONTENUS SEZAME</h3>
+
+        <!-- 1 — STATISTIQUES -->
+        <p class="media-stats-title">1. STATISTIQUES</p>
+        <div class="media-notes" style="margin-top:1.2rem;">
+            <p>Sur 30 jours, les contenus ont généré 2,53 millions de vues (organique et Ads),<br>dont 92,6 % via les campagnes Ads, montrant une forte capacité d'amplification payante.<br>Performance des contenus (sept.–oct. 2025)</p>
+            <p style="margin-top:1.1rem;">Depuis mon arrivée le 16 septembre, le compte est passé de 38K à 51K abonnés, soit<br>+13 000 abonnés (+34%).<br>Sur un mois (nov.–déc.), la croissance atteint +3,8K abonnés (+9,3%), confirmant une dynamique d'acquisition soutenue.<br>Croissance Instagram (depuis septembre 2025)</p>
+        </div>
+        <div class="media-grid-duo">
+            <img src="images/stats.png" alt="Statistiques Sezame" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;cursor:pointer;">
+            <img src="stats2.png" alt="Statistiques Sezame 2" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;cursor:pointer;">
+        </div>
+
+        <hr class="media-stats-sep">
+
+        <!-- 2 — PRODUCTION DE CONTENUS -->
+        <p class="media-stats-title">2. PRODUCTION DE CONTENUS – ORGANISATION ET PRODUCTION DE SHOOTINGS</p>
+        <div class="video-grid">
+            <div class="video-slot"><video src="1.mp4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="2.mp4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="3.mp4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="4.mp4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="5.MP4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="6.MP4"   muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+        </div>
+
+        <hr class="media-stats-sep">
+
+        <!-- 3 — COLLABORATION UGC -->
+        <p class="media-stats-title">3. COLLABORATION AVEC DES CRÉATRICES UGC</p>
+        <div class="video-grid">
+            <div class="video-slot"><video src="8.MP4" muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+            <div class="video-slot"><video src="7.MP4" muted playsinline disablepictureinpicture disableremoteplayback style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video></div>
+        </div>
+
+        <hr class="media-stats-sep">
+
+        <p style="font-family:'Inter',sans-serif;color:#555555;font-style:italic;text-align:center;padding:2rem 0;">En cours de réalisation</p>
+
+    </div>
+</div>
+
+<!-- ============================================================
+     LIGHTBOX
+============================================================ -->
+<div id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function () {
+    'use strict';
+
+    var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Burger / mobile menu ── */
+    var burger  = document.getElementById('burger');
+    var mobMenu = document.getElementById('mob-menu');
+
+    burger.addEventListener('click', function () {
+        var open = mobMenu.classList.toggle('open');
+        burger.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    window.closeMob = function () {
+        mobMenu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
+
+    /* ── Scroll reveal ── */
+    if (noMotion) {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('in');
+        });
+    } else {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            obs.observe(el);
+        });
+    }
+
+    /* ── Hero title parallax (desktop only) ── */
+    var heroTitle = document.querySelector('.hero-h1');
+    var isTouch   = window.matchMedia('(hover: none)').matches;
+
+    if (heroTitle && !isTouch && !noMotion) {
+        window.addEventListener('mousemove', function (e) {
+            var offset = (e.clientX / window.innerWidth - 0.5) * 60;
+            heroTitle.style.transform = 'translateX(' + offset + 'px)';
+        }, { passive: true });
+    }
+
+    /* ── Modal compétences ── */
+    var MODALS = {
+        'instagram': {
+            title: 'Instagram',
+            desc: 'Création et gestion de comptes professionnels, stratégie de contenu, planification éditoriale, analyse des insights, croissance organique de communauté.'
+        },
+        'tiktok': {
+            title: 'TikTok',
+            desc: "Création de vidéos courtes, tendances, hooks d'accroche, montage CapCut, stratégie de visibilité organique."
+        },
+        'canva': {
+            title: 'Canva',
+            desc: 'Création de templates pour tous formats (posts, stories, carousels, couvertures), respect de charte graphique.'
+        },
+        'capcut': {
+            title: 'CapCut',
+            desc: 'Montage vidéo mobile et desktop, sous-titres automatiques, transitions, effets sonores, format Reels/TikTok optimisé.'
+        },
+        'metricool': {
+            title: 'Metricool',
+            desc: 'Planification multi-plateformes, reporting de performance, analyse de métriques (reach, engagement, impressions), recommandations mensuelles.'
+        },
+        'strategie-editoriale': {
+            title: 'Stratégie éditoriale',
+            desc: "Définition de ligne éditoriale, piliers de contenu, calendrier éditorial mensuel, adaptation du ton selon la cible et la plateforme.\n\nEn parallèle, je développe actuellement une application qui permet de générer une stratégie de contenu sur-mesure en fonction des objectifs, de la cible et du positionnement de marque\ndu diagnostic à la recommandation éditoriale, entièrement automatisé."
+        },
+        'creation-de-contenu': {
+            title: 'Création de contenu',
+            desc: 'Production complète de contenus (visuels, vidéos, captions), de la conception au format final prêt à publier.'
+        },
+        'seo': {
+            title: 'SEO',
+            desc: "Optimisation on-page, recherche de mots-clés, analyse de performance organique, recommandations d'amélioration de visibilité."
+        },
+        'analyse-de-donnees': {
+            title: 'Analyse de données',
+            desc: 'Lecture et interprétation des métriques sociales et web, identification des contenus performants, ajustement de stratégie.'
+        },
+        'reporting': {
+            title: 'Reporting',
+            desc: 'Création de tableaux de bord clairs et actionnables, synthèse mensuelle des performances, recommandations chiffrées.'
+        },
+        'campagnes-paid': {
+            title: 'Campagnes paid',
+            desc: 'Notions de ciblage publicitaire Meta Ads, compréhension des KPIs paid vs organique.'
+        },
+        'google-analytics': {
+            title: 'Google Analytics',
+            desc: "Suivi du trafic, analyse des sources, comportement utilisateur, configuration d'objectifs de base."
+        },
+        'notion': {
+            title: 'Notion',
+            desc: 'Organisation de projets, bases de données, tableaux de bord, systèmes de reporting et de suivi client.'
+        },
+        'trello': {
+            title: 'Trello',
+            desc: 'Gestion de projets en mode kanban, organisation des tâches, suivi des deadlines et collaboration en équipe.'
+        },
+        'claude-code': {
+            title: 'Claude Code',
+            desc: "Outil de développement IA en ligne de commande. Utilisé pour créer et itérer sur des projets digitaux, automatiser des tâches techniques et accélérer le développement d'applications."
+        },
+        'lighthouse': {
+            title: 'Lighthouse',
+            desc: "Audit de performance web, analyse de l'accessibilité, du SEO et des bonnes pratiques. Optimisation des scores de page pour améliorer l'expérience utilisateur et la visibilité organique."
+        },
+        'ia-generative': {
+            title: 'IA générative',
+            desc: "Utilisation avancée de ChatGPT et Claude pour la création de contenu, l'automatisation et le développement de projets digitaux."
+        }
+    };
+
+    var EXP_MODALS = {
+        'sezame': {
+            title: 'SEZAME — Social Media & Web Content',
+            sub: 'Sept 2025 – Juin 2026 · Paris 75013 · Alternance',
+            missions: [
+                'Création et planification du calendrier éditorial',
+                'Rédaction des captions dans un ton aligné avec le positionnement premium',
+                'Sélection et coordination des visuels (shooting, UGC, contenus partenaires)',
+                "Développement de l'image de marque sur les réseaux sociaux",
+                'Collaboration avec les hôtels partenaires pour la création de contenu',
+                'Participation à la direction artistique globale',
+                'Prise de contact et gestion des relations avec les modèles et créatrices UGC',
+                'Déplacements professionnels (Sud de la France) dans le cadre de shootings et production de contenus',
+                'Prise de contact directe avec les hôtels partenaires pour l\'organisation et la coordination de shootings photo et vidéo sur site.'
+            ]
+        },
+        'mawu': {
+            title: 'MAWU PARIS — Communication Digitale & Relations Presse',
+            sub: 'Juil 2025 – Août 2025 · Courbevoie 92 · Stage',
+            missions: [
+                'Gestion du calendrier éditorial et programmation des publications sur les réseaux sociaux',
+                "Définition et mise en œuvre d'une stratégie de communication pour le pop-up",
+                "Organisation complète d'un shooting photo événementiel (planification, coordination, suivi)",
+                'Prise de contact et gestion des relations avec les modèles et créatrices UGC',
+                'Définition de la stratégie TikTok pour la marque',
+                "Réalisation d'analyses et veille concurrentielle sur TikTok afin d'identifier les tendances et opportunités",
+                "Conception d'une formation interne avec guidelines pour optimiser la production et la diffusion de contenus TikTok"
+            ]
+        },
+        'ecorce': {
+            title: 'ÉCORCE & WOOD — Community Manager',
+            sub: 'Nov 2024 – Juil 2025 · Le Plessis-Bouchard 95 · Alternance',
+            missions: [
+                'Gestion de la relation client sur les réseaux sociaux',
+                'Animation des réseaux sociaux : création, planification et diffusion de contenus engageants',
+                'Rédaction de contenus adaptés aux différents formats et audiences',
+                'Réalisation de shootings photo et vidéo : prise de contact client, planification des rendez-vous, production sur site',
+                'Retouches et optimisation des visuels via Photoshop et Lightroom pour une cohérence esthétique optimale',
+                'Veille active sur les tendances, les bonnes pratiques et l\'actualité en communication digitale',
+                "Mise à jour régulière de tableaux Trello pour suivre l'avancement des missions, organiser les tâches et assurer la coordination des projets",
+                'Prise de contact directe avec les clients pour l\'organisation et la coordination de shootings photo et vidéo sur site.'
+            ]
+        }
+    };
+
+    var modalOverlay = document.getElementById('modal-overlay');
+    var modalClose   = document.getElementById('modal-close');
+    var modalTitle   = document.getElementById('modal-title');
+    var modalSub     = document.getElementById('modal-sub');
+    var modalDesc    = document.getElementById('modal-desc');
+    var lastFocus    = null;
+
+    function openSkillModal(key) {
+        var data = MODALS[key];
+        if (!data) return;
+        modalTitle.style.color = '#F5E642';
+        modalTitle.textContent = data.title;
+        modalSub.style.display = 'none';
+        var parts = data.desc.split('\n\n');
+        if (parts.length > 1) {
+            modalDesc.innerHTML = parts.map(function (p) {
+                return '<span style="display:block;margin-bottom:.9rem">' + p.replace(/\n/g, '<br>') + '</span>';
+            }).join('');
+        } else {
+            modalDesc.innerHTML = data.desc.replace(/\n/g, '<br>');
+        }
+        showModal();
+    }
+
+    function openExpModal(key) {
+        var data = EXP_MODALS[key];
+        if (!data) return;
+        modalTitle.style.color = '#F0F0F0';
+        modalTitle.textContent = data.title;
+        modalSub.textContent   = data.sub;
+        modalSub.style.display = 'block';
+        var html = '<ul class="modal-missions">' +
+            data.missions.map(function (m) { return '<li>' + m + '</li>'; }).join('') +
+            '</ul>';
+        if (data.highlight) {
+            html += '<div class="modal-highlight">' + data.highlight + '</div>';
+        }
+        if (key === 'sezame') {
+            html += '<button class="modal-media-btn" id="sezame-media-btn">VOIR MES CONTENUS →</button>';
+        }
+        modalDesc.innerHTML = html;
+        if (key === 'sezame') {
+            document.getElementById('sezame-media-btn').addEventListener('click', openMediaModal);
+        }
+        showModal();
+    }
+
+    function showModal() {
+        lastFocus = document.activeElement;
+        modalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
+    }
+
+    function closeModal() {
+        modalOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+    }
+
+    var mediaModal = document.getElementById('media-modal');
+    var mediaClose = document.getElementById('media-close');
+
+    function openMediaModal() {
+        mediaModal.classList.add('open');
+        mediaModal.scrollTop = 0;
+        mediaClose.focus();
+    }
+
+    function closeMediaModal() {
+        mediaModal.classList.remove('open');
+    }
+
+    mediaClose.addEventListener('click', closeMediaModal);
+    mediaModal.addEventListener('click', function (e) { if (e.target === mediaModal) closeMediaModal(); });
+
+    /* ── Lightbox ── */
+    var lightbox    = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+
+    document.getElementById('media-box').addEventListener('click', function (e) {
+        var img = e.target.closest('.media-grid img');
+        if (!img) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+    });
+
+    lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            if (lightbox.classList.contains('open')) { lightbox.classList.remove('open'); return; }
+            if (mediaModal.classList.contains('open')) closeMediaModal();
+        }
+    });
+
+    document.querySelectorAll('.skill-list li[data-skill]').forEach(function (li) {
+        li.addEventListener('click', function () { openSkillModal(this.dataset.skill); });
+        li.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSkillModal(this.dataset.skill); }
+        });
+    });
+
+    document.querySelectorAll('.exp-card[data-exp]').forEach(function (card) {
+        card.addEventListener('click', function () { openExpModal(this.dataset.exp); });
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openExpModal(this.dataset.exp); }
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function (e) { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+    });
+
+    /* ── Contact form → Google Forms ── */
+    var form = document.getElementById('cform');
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var name = document.getElementById('fn').value.trim();
+            var mail = document.getElementById('fe').value.trim();
+            var msg  = document.getElementById('fm').value.trim();
+            if (!name || !mail || !msg) return;
+
+            var btn = form.querySelector('.btn');
+            btn.textContent = 'ENVOI…';
+            btn.disabled = true;
+
+            var formData = new URLSearchParams();
+            formData.append('entry.1163554661', name);
+            formData.append('entry.2096300990', mail);
+            formData.append('entry.1148234990', msg);
+
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSc2PYIv8H1esTJSaiIpotmMKWLgSqwPeUg6XBDK9R2ZjfiCQQ/formResponse', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            });
+
+            form.innerHTML = '<p style="color:var(--yellow);font-family:\'Syne\',sans-serif;font-weight:700;font-size:1.1rem;line-height:1.6;">Message envoyé.<br>Je reviens vers vous rapidement.</p>';
+        });
+    }
+
+    /* ── Video controls ── */
+    document.querySelectorAll('.video-slot').forEach(function (slot) {
+        var video = slot.querySelector('video');
+        if (!video) return;
+
+        var bar = document.createElement('div');
+        bar.className = 'video-controls';
+
+        var playBtn = document.createElement('button');
+        playBtn.className = 'v-btn v-play';
+        playBtn.textContent = 'Lecture';
+        playBtn.setAttribute('aria-label', 'Lancer / Mettre en pause');
+
+        var muteBtn = document.createElement('button');
+        muteBtn.className = 'v-btn v-mute';
+        muteBtn.textContent = 'Son OFF';
+        muteBtn.setAttribute('aria-label', 'Activer / Désactiver le son');
+
+        bar.appendChild(playBtn);
+        bar.appendChild(muteBtn);
+        slot.appendChild(bar);
+
+        playBtn.addEventListener('click', function () {
+            if (video.paused) { video.play(); playBtn.textContent = 'Pause'; }
+            else              { video.pause(); playBtn.textContent = 'Lecture'; }
+        });
+
+        muteBtn.addEventListener('click', function () {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? 'Son OFF' : 'Son ON';
+        });
+
+        video.addEventListener('ended', function () {
+            playBtn.textContent = 'Lecture';
+        });
+    });
+
+}());
+</script>
+
+</body>
+</html>
